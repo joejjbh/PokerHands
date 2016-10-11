@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
 
 namespace PokerHands
 {
     public class Card : IComparable<Card>
     {
-        private static Dictionary<string, int> cardValues = new Dictionary<string, int>()
+        private static readonly Dictionary<string, int> cardValues = new Dictionary<string, int>()
         {
             {"2", 2},
             {"3", 3},
@@ -48,23 +47,14 @@ namespace PokerHands
 
         public int CompareTo(Card compareCard)
         {
-            if (compareCard == null)
-                return 1;
-
-            else
-                return FaceValue.CompareTo(compareCard.FaceValue);
+            return compareCard == null ? 1 : FaceValue.CompareTo(compareCard.FaceValue);
         }
 
         public override bool Equals(object obj)
         {
-            Card that = obj as Card;
+            var that = obj as Card;
 
-            if (!(that is Card))
-            {
-                return false;
-            }
-
-            return this.FaceValue == that.FaceValue && this.Suit == that.Suit;
+            return that != null && (FaceValue == that.FaceValue && Suit == that.Suit);
         }
 
         public char Suit { get; internal set; }

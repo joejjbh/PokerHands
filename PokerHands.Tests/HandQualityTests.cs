@@ -16,7 +16,7 @@ namespace PokerHands.Tests
             Hand theHand = new Hand("7H, 8H, 10H, JH, 4H");
             StraightFlush sFlush = new StraightFlush();
             var result = sFlush.CheckIfFlush(theHand);
-            Assert.That(result, Is.EqualTo("Yes"));
+            Assert.That(result, Is.EqualTo(true));
         }
 
         [Test]
@@ -25,7 +25,7 @@ namespace PokerHands.Tests
             Hand theHand = new Hand("7H, 8H, 9H, 10H, JH");
             StraightFlush sFlush = new StraightFlush();
             var result = sFlush.CheckIfStraight(theHand);
-            Assert.That(result, Is.EqualTo("Yes"));
+            Assert.That(result, Is.EqualTo(true));
         }
     }
 }

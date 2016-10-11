@@ -40,9 +40,14 @@ namespace PokerHands
             }
         }
 
-        public Card GetHighestCard()
+        public void SortCards()
         {
             cards.Sort();
+        }
+
+        public Card GetHighestCard()
+        {
+            SortCards();
             
             return cards[cards.Count - 1];
         }

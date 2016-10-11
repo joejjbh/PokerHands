@@ -8,27 +8,34 @@ namespace PokerHands
 {
     public class StraightFlush
     {
-        public string CheckIfFlush(Hand theHand)
+        public bool CheckIfFlush(Hand theHand)
         {
-//            foreach (Card card in theHand)
-//            {
-//                if (theHand.cards..GroupBy(n => n).Any(c => c.Count() == 2))
-//                {
-//                    
-//                }
-//            }
-            if (theHand[0].Suit == theHand[1].Suit && theHand[1].Suit == theHand[2].Suit
-                && theHand[2].Suit == theHand[3].Suit && theHand[3].Suit == theHand[4].Suit)
+            var suitOfFirstCard = theHand[0].Suit;
+            for (var index = 1; index < theHand.Count; index++)
             {
-                return "Yes";
+                var suit = theHand[index].Suit;
+                if (suitOfFirstCard != suit)
+                    return false;
             }
-            return "No";
+            return true;
         }
 
-        public string CheckIfStraight(Hand theHand)
+        public bool CheckIfStraight(Hand theHand)
         {
-           
-            return "";
+            theHand.SortCards();
+            int valueOfLastCard = theHand[theHand.Count - 1].FaceValue;
+            for (var index = 3; index >= 0; index--)
+            {
+                var value = theHand[index].FaceValue;
+                if (value != valueOfLastCard - 1)
+                {
+                    return false;
+                }
+                valueOfLastCard = value;
+            }
+            return true;
+            
         }
+
     }
 }
