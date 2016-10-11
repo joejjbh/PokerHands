@@ -29,11 +29,20 @@ namespace PokerHands.Tests
         }
 
         [Test]
-        public void ShouldSayIfFourOfAKind()
+        public void ShouldSayIfThreeOfAKind()
         {
-            Hand theHand = new Hand("7H, 7D, 7S, 7C, JH");
-            FourOfAKind fOAKind = new FourOfAKind();
-            var result = fOAKind.CheckIfFourOfAKind(theHand);
+            Hand theHand = new Hand("6H, 4D, 7S, 7C, 7H");
+            ThreeOfAKind tOAKind = new ThreeOfAKind();
+            var result = tOAKind.CheckIfThreeOfAKind(theHand);
+            Assert.That(result, Is.EqualTo(true));
+        }
+
+        [Test]
+        public void ShouldSayIfPair()
+        {
+            Hand theHand = new Hand("6H, 4D, 7S, JC, 6H");
+            Pair pair = new Pair();
+            var result = pair.CheckIfPair(theHand);
             Assert.That(result, Is.EqualTo(true));
         }
     }
