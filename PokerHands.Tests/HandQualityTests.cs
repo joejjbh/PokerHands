@@ -27,5 +27,14 @@ namespace PokerHands.Tests
             var result = sFlush.CheckIfStraight(theHand);
             Assert.That(result, Is.EqualTo(true));
         }
+
+        [Test]
+        public void ShouldSayIfFourOfAKind()
+        {
+            Hand theHand = new Hand("7H, 7D, 7S, 7C, JH");
+            FourOfAKind fOAKind = new FourOfAKind();
+            var result = fOAKind.CheckIfFourOfAKind(theHand);
+            Assert.That(result, Is.EqualTo(true));
+        }
     }
 }
