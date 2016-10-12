@@ -10,18 +10,31 @@ namespace PokerHands
     {
         public bool CheckIfThreeOfAKind(Hand theHand)
         {
-            var sameCard = 1;
+            var sameAsFirstCard = 1;
+            var sameAsSecondCard = 1;
+            var sameAsThirdCard = 1;
             var valueOfFirstCard = theHand[0].FaceValue;
             var valueOfSecondCard = theHand[1].FaceValue;
             var valueOfThirdCard = theHand[2].FaceValue;
             for (var index = 0; index < theHand.Count; index++)
             {
                 var value = theHand[index].FaceValue;
-                sameCard += 1;
-                if (valueOfFirstCard != value && valueOfSecondCard != value && valueOfThirdCard != value && sameCard < 3)
-                    return false;
+                if (valueOfFirstCard == value && index != 0)
+                {
+                    sameAsFirstCard += 1;
+                }
+                if (valueOfSecondCard == value && index != 1)
+                {
+                    sameAsSecondCard += 1;
+                }
+                if (valueOfThirdCard == value && index != 2)
+                {
+                    sameAsThirdCard += 1;
+                }
             }
-            return true;
+            if (sameAsFirstCard == 3 || sameAsSecondCard == 3 || sameAsThirdCard == 3)
+                return true;
+            return false;
         }
     }
 }

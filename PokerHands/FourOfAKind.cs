@@ -10,17 +10,25 @@ namespace PokerHands
     {
         public bool CheckIfFourOfAKind(Hand theHand)
         {
-            var sameCard = 1;
+            var sameAsFirstCard = 1;
+            var sameAsSecondCard = 1;
             var valueOfFirstCard = theHand[0].FaceValue;
             var valueOfSecondCard = theHand[1].FaceValue;
-            for (var index = 2; index < theHand.Count; index++)
+            for (var index = 0; index < theHand.Count; index++)
             {
                 var value = theHand[index].FaceValue;
-                sameCard += 1;
-                if (valueOfFirstCard != value && valueOfSecondCard != value && sameCard < 4)
-                    return false;
+                if (valueOfFirstCard == value && index != 0)
+                {
+                    sameAsFirstCard += 1;
+                }
+                if (valueOfSecondCard == value && index != 1)
+                {
+                    sameAsSecondCard += 1;
+                }
             }
-            return true;
+            if (sameAsFirstCard == 4 || sameAsSecondCard == 4)
+                return true;
+            return false;
         }
     
     }
