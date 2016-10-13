@@ -31,7 +31,7 @@ namespace PokerHands.Tests
         [Test]
         public void ShouldSayIfFourOfAKind()
         {
-            Hand theHand = new Hand("7D, 6D, 7S, 7C, 7H");
+            Hand theHand = new Hand("8D, 7D, 7S, 7C, 7H");
             FourOfAKind fOAKind = new FourOfAKind();
             var result = fOAKind.CheckIfFourOfAKind(theHand);
             Assert.That(result, Is.EqualTo(true));
@@ -40,7 +40,7 @@ namespace PokerHands.Tests
         [Test]
         public void ShouldSayIfThreeOfAKind()
         {
-            Hand theHand = new Hand("7H, 4D, 4S, 7C, 7H");
+            Hand theHand = new Hand("7H, 4D, 8S, 7C, 7H");
             ThreeOfAKind tOAKind = new ThreeOfAKind();
             var result = tOAKind.CheckIfThreeOfAKind(theHand);
             Assert.That(result, Is.EqualTo(true));
@@ -49,7 +49,7 @@ namespace PokerHands.Tests
         [Test]
         public void ShouldSayIfPair()
         {
-            Hand theHand = new Hand("6H, 4D, 7S, JC, 6H");
+            Hand theHand = new Hand("6H, 9D, 9S, JC, 6H");
             Pair pair = new Pair();
             var result = pair.CheckIfPair(theHand);
             Assert.That(result, Is.EqualTo(true));
