@@ -10,6 +10,11 @@ namespace PokerHands
     {
         public bool CheckIfPair(Hand theHand)
         {
+            return XOfAKind.CheckXOfAKind(theHand, 2);
+        }
+    }
+}
+
 //            var sameCard = 1;
 //            var valueOfFirstCard = theHand[0].FaceValue;
 //            var valueOfSecondCard = theHand[1].FaceValue;
@@ -24,32 +29,32 @@ namespace PokerHands
 //                    return false;
 //            }
 //            return true;
+//
+//            var sameCard = 1;
+//            var indexOfCard = 0;
+//            var numberOfPairs = 0;
+//            var valueOfCard = theHand[0].FaceValue;
+//            for (var index = 0; index < theHand.Count; index++)
+//            {
+//                var value = theHand[index].FaceValue;
+//                if (valueOfCard == value && index != indexOfCard)
+//                {
+//                    sameCard += 1;
+//
+//                    if (sameCard == 2)
+//                    {
+//                        numberOfPairs += 1;
+//                    }
+//                    if (index == theHand.Count - 1 && (sameCard < 2 || numberOfPairs == 1))
+//                    {
+//                        sameCard = 1;
+//                        indexOfCard += 1;
+//                    }           
+//                }
+//            }
+//            if (numberOfPairs == 1)
+//                return true;
+//            return false;
+//        }
+//    }
 
-            var sameCard = 1;
-            var indexOfCard = 0;
-            var numberOfPairs = 0;
-            var valueOfCard = theHand[0].FaceValue;
-            for (var index = 0; index < theHand.Count; index++)
-            {
-                var value = theHand[index].FaceValue;
-                if (valueOfCard == value && index != indexOfCard)
-                {
-                    sameCard += 1;
-
-                    if (sameCard == 2)
-                    {
-                        numberOfPairs += 1;
-                    }
-                    if (index == theHand.Count - 1 && (sameCard < 2 || numberOfPairs == 1))
-                    {
-                        sameCard = 1;
-                        indexOfCard += 1;
-                    }           
-                }
-            }
-            if (numberOfPairs == 1)
-                return true;
-            return false;
-        }
-    }
-}

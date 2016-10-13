@@ -38,6 +38,14 @@ namespace PokerHands.Tests
         }
 
         [Test]
+        public void ShouldReturnFalseIfCountOfCardsIsLessThan4()
+        {
+            var myHand = new Hand("7H, 7C, 7S");
+            var result = new FourOfAKind().CheckIfFourOfAKind(myHand);
+            Assert.That(result, Is.EqualTo(false));
+        }
+
+        [Test]
         public void ShouldSayIfThreeOfAKind()
         {
             Hand theHand = new Hand("7H, 4D, 8S, 7C, 7H");

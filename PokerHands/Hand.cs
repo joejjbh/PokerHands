@@ -22,6 +22,8 @@ namespace PokerHands
 
         }
 
+//        public List<Card> Cards => cards;
+
         public Card this[int index]
         {
             get
