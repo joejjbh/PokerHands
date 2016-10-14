@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PokerHands
+﻿namespace PokerHands
 {
-
     public class ThreeOfAKind
     {
+        private const int numberOfMatchingCards = 3;
+
         public bool CheckIfThreeOfAKind(Hand theHand)
         {
-            return XOfAKind.CheckXOfAKind(theHand, 3);
+            return XOfAKind.CheckXOfAKind(theHand, numberOfMatchingCards);
         }
     }
 }

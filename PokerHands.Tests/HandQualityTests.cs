@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace PokerHands.Tests
 {
@@ -14,17 +9,26 @@ namespace PokerHands.Tests
         public void ShouldSayIfAllCardsAreTheSameSuit()
         {
             Hand theHand = new Hand("7H, 8H, 10H, JH, 4H");
-            StraightFlush sFlush = new StraightFlush();
-            var result = sFlush.CheckIfFlush(theHand);
+            Flush flush = new Flush();
+            var result = flush.CheckIfFlush(theHand);
             Assert.That(result, Is.EqualTo(true));
         }
 
         [Test]
         public void ShouldSayIfStraight()
         {
+            Hand theHand = new Hand("7H, 8D, 9H, 10S, JH");
+            Straight straight = new Straight();
+            var result = straight.CheckIfStraight(theHand);
+            Assert.That(result, Is.EqualTo(true));
+        }
+
+        [Test]
+        public void ShouldSayIfStraightFlush()
+        {
             Hand theHand = new Hand("7H, 8H, 9H, 10H, JH");
             StraightFlush sFlush = new StraightFlush();
-            var result = sFlush.CheckIfStraight(theHand);
+            var result = sFlush.CheckIfStraightFlush(theHand);
             Assert.That(result, Is.EqualTo(true));
         }
 

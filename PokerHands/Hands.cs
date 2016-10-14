@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace PokerHands
+﻿namespace PokerHands
 {
     public class Hands
     {
-
         private int handQuality = 0;
         private const int threeOfAKind = 3;
 

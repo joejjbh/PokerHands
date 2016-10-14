@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace PokerHands
 {
@@ -19,10 +17,7 @@ namespace PokerHands
             {
                 return cards.Count;
             } 
-
         }
-
-//        public List<Card> Cards => cards;
 
         public Card this[int index]
         {
@@ -63,10 +58,7 @@ namespace PokerHands
         {
             if ((cards[0].FaceValue == cards[1].FaceValue) || (cards[0].FaceValue == cards[2].FaceValue))
                 return 1;
-            
-//            if(hand.GroupBy(n => n).Any(c => c.Count() == 2))
             return 0;
         }
     }
-
 }
