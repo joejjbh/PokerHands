@@ -2,30 +2,39 @@
 {
     public class Hands
     {
-        private int handQuality = 0;
-        private const int threeOfAKind = 3;
-
         public string GetWinningHand(Hand playerOneCards, Hand playerTwoCards)
         {
-            Card playerOneHighestCard = playerOneCards.GetHighestCard();
-            Card playerTwoHighestCard = playerTwoCards.GetHighestCard();
-//            int playerOneHandQuality = playerOneCards.GetHandQuality();
+            BestHand playerOneBestHand = new BestHand();
+            BestHand playerTwoBestHand = new BestHand();
+            var playerOneHandValue = playerOneBestHand.FindBestHand(playerOneCards);
+            var playerTwoHandValue = playerTwoBestHand.FindBestHand(playerTwoCards);
 
-            if (playerOneHighestCard.FaceValue == playerTwoHighestCard.FaceValue)
+            if (playerOneHandValue == playerTwoHandValue)
             {
-                playerOneCards.RemoveCard(playerOneHighestCard);
-                playerTwoCards.RemoveCard(playerTwoHighestCard);
-                if (playerOneCards.Count == 0)
-                {
-                    return "It is a draw";
-                }
-                return GetWinningHand(playerOneCards, playerTwoCards);
+                return "It is a draw";
             }
-
-            if (playerOneHighestCard.FaceValue > playerTwoHighestCard.FaceValue)
+            if (playerOneHandValue > playerTwoHandValue)
                 return "Player One Wins";
-
             return "Player Two Wins";
         }
     }
 }
+
+
+//            if (playerOneHighestCard.FaceValue == playerTwoHighestCard.FaceValue)
+//            {
+//                playerOneCards.RemoveCard(playerOneHighestCard);
+//                playerTwoCards.RemoveCard(playerTwoHighestCard);
+//                if (playerOneCards.Count == 0)
+//                {
+//                    return "It is a draw";
+//                }
+//                return GetWinningHand(playerOneCards, playerTwoCards);
+//            }
+//
+//            if (playerOneHighestCard.FaceValue > playerTwoHighestCard.FaceValue)
+//                return "Player One Wins";
+//
+//            return "Player Two Wins";
+//        }
+//    }

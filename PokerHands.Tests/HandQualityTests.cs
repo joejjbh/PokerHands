@@ -89,7 +89,7 @@ namespace PokerHands.Tests
         {
             Hand theHand = new Hand(hand);
             BestHand bestHand = new BestHand();
-            var result = bestHand.findBestHand(theHand);
+            var result = bestHand.FindBestHand(theHand);
             Assert.That(result, Is.EqualTo(handQuality));
 
         }

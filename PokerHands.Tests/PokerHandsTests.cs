@@ -46,18 +46,31 @@ namespace PokerHands.Tests
             Assert.That(result, Is.EqualTo(expectedResult));
         }
 
-        [TestCase("3H,7C,KD,QH,4H", "2C,8S,AS,6H,5C", "Player Two Wins")]
-        [TestCase("3H,7C,KD,QH,4H", "2C,KS,JS,6H,5C", "Player One Wins")]
-        [TestCase("4H,7C,KD,JH,AS", "3H,7C,KD,JH,AS", "Player One Wins")]
-        [TestCase("3H,7C,KD,JH,AS", "3H,7C,KD,JH,AS", "It is a draw")]
-        [TestCase("4H,7C,KD,JH,AS", "3H,7C,QD,JH,10S","Player One Wins")]
-        public void ShouldReturnWhichHandHasTheHighestCard(string hand1, string hand2, string expectedResult)
+//        [TestCase("3H,7C,KD,QH,4H", "2C,8S,AS,6H,5C", "Player Two Wins")]
+//        [TestCase("3H,7C,KD,QH,4H", "2C,KS,JS,6H,5C", "Player One Wins")]
+//        [TestCase("4H,7C,KD,JH,AS", "3H,7C,KD,JH,AS", "Player One Wins")]
+//        [TestCase("3H,7C,KD,JH,AS", "3H,7C,KD,JH,AS", "It is a draw")]
+//        [TestCase("4H,7C,KD,JH,AS", "3H,7C,QD,JH,10S","Player One Wins")]
+//        public void ShouldReturnWhichHandHasTheHighestCard(string hand1, string hand2, string expectedResult)
+//        {
+//            Hand playerOneHand = new Hand(hand1);
+//            Hand playerTwoHand = new Hand(hand2);
+//            Hands allCards = new Hands();
+//            string finalResult = allCards.GetWinningHand(playerOneHand, playerTwoHand);
+//            Assert.That(finalResult, Is.EqualTo(expectedResult));
+//        }
+
+        [TestCase("7H,8H,9H,10H,JH", "7D,8S,9S,10D,JC", "Player One Wins")]
+        [TestCase("7D,8S,9S,10D,JC", "7H,8H,9H,10H,JH", "Player Two Wins")]
+        [TestCase("7D,7S,7D,10D,JC", "8H,8C 8C,10H,JH", "It is a draw")]
+        public void ShouldReturnWhichHadWins(string hand1, string hand2, string expectedResult)
         {
             Hand playerOneHand = new Hand(hand1);
             Hand playerTwoHand = new Hand(hand2);
-            Hands allCards = new Hands();
-            string finalResult = allCards.GetWinningHand(playerOneHand, playerTwoHand);
-            Assert.That(finalResult, Is.EqualTo(expectedResult));
+            Hands bothHands = new Hands();
+            string result = bothHands.GetWinningHand(playerOneHand, playerTwoHand);
+            Assert.That(result, Is.EqualTo(expectedResult));
+
         }
 
         [Test]
@@ -67,25 +80,6 @@ namespace PokerHands.Tests
             Hand myHand = new Hand("7H");
             myHand.RemoveCard(myCard);
             Assert.That(myHand.Count, Is.EqualTo(0));
-        }
-
-
-//        [TestCase("7H,7C,KD,JH,AS", 1)]
-//        [TestCase("7H,7C,7D,JH,AS", 3)]
-//        [TestCase("7H,7C,7D,7S,AS", 7)]
-//        [TestCase("7H,7C,7D,6S,6D", 6)]
-//        //[TestCase("7H,7C,8D,6S,6D", 2)]
-//        public void ShouldResturnHandQuality(string hand, int expectedResult)
-//        {
-//            var myHand = new Hand(hand);
-//            var result = myHand.GetHandQuality();
-//            Assert.That(result, Is.EqualTo(expectedResult));
-//        }
-        [Test]
-        public void ShouldReturnHandQuality()
-        {
-            Hand myHand = new Hand("7H,7C,KD,JH,AS");
-            Assert.That(myHand.GetHandQuality(), Is.EqualTo(1));
         }
 
         [Test]

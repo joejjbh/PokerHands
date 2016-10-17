@@ -42,11 +42,11 @@ namespace PokerHands
             cards.Remove(myCard);
         }
 
-        public int GetHandQuality()
-        {
-            if ((cards[0].FaceValue == cards[1].FaceValue) || (cards[0].FaceValue == cards[2].FaceValue))
-                return 1;
-            return 0;
-        }
+//        public int GetHandQuality()
+//        {
+//            if ((cards[0].FaceValue == cards[1].FaceValue) || (cards[0].FaceValue == cards[2].FaceValue))
+//                return 1;
+//            return 0;
+//        }
     }
 }
