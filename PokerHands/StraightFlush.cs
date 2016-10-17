@@ -1,16 +1,16 @@
 ﻿namespace PokerHands
 {
-    public class StraightFlush
+    public class StraightFlush : Straight, IEvaluateHands
     {
-        public bool CheckIfStraightFlush(Hand theHand)
+        public bool IsTypeOf(Hand theHand)
         {
-            Straight straight = new Straight();
-            Flush flush = new Flush();
-            bool isStraight = straight.CheckIfStraight(theHand);
-            bool isFlush = flush.CheckIfFlush(theHand);
-            if (isStraight && isFlush)
-                return true;
-            return false;
+            var straight = new Straight();
+            var flush = new Flush();
+            var isStraight = straight.IsTypeOf(theHand);
+            var isFlush = flush.IsTypeOf(theHand);
+            return isStraight && isFlush;
         }
+
+        public int HandValue => 8;
     }
 }

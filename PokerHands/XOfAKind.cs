@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace PokerHands
 {
-    public class XOfAKind
+    public abstract class XOfAKind
     {
-        public static bool CheckXOfAKind(Hand theHand, int x)
+        public bool CheckXOfAKind(Hand theHand, int x)
         {
             if (theHand.Count < x) return false;
 

@@ -1,12 +1,14 @@
 ﻿namespace PokerHands
 {
-    public class FourOfAKind
+    public class FourOfAKind : XOfAKind, IEvaluateHands
     {
-        private const int numberOfMatchingCards = 4;
+        private const int NumberOfMatchingCards = 4;
 
-        public bool CheckIfFourOfAKind(Hand theHand)
+        public bool IsTypeOf(Hand hand)
         {
-            return XOfAKind.CheckXOfAKind(theHand, numberOfMatchingCards);
+            return CheckXOfAKind(hand, NumberOfMatchingCards);
         }
+
+        public int HandValue => 7;
     }
 }

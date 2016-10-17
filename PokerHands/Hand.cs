@@ -11,27 +11,15 @@ namespace PokerHands
             SeperateHand(hand);
         }
 
-        public int Count
-        {
-            get
-            {
-                return cards.Count;
-            } 
-        }
+        public int Count => cards.Count;
 
-        public Card this[int index]
-        {
-            get
-            {
-                return cards[index];
-            }
-        }
+        public Card this[int index] => cards[index];
 
         private void SeperateHand(string stringRepresentationOfHandOfCards)
         {
-            char delimiterChars = ',';
-            string[] stringCards = stringRepresentationOfHandOfCards.Split(delimiterChars);
-            foreach (string individualCardAsString in stringCards)
+            var delimiterChars = ',';
+            var stringCards = stringRepresentationOfHandOfCards.Split(delimiterChars);
+            foreach (var individualCardAsString in stringCards)
             {
                 cards.Add(new Card(individualCardAsString));
             }

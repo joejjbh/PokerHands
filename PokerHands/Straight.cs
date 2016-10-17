@@ -1,11 +1,11 @@
 ﻿namespace PokerHands
 {
-    public class Straight
+    public class Straight: IEvaluateHands
     {
-        public bool CheckIfStraight(Hand theHand)
+        public bool IsTypeOf(Hand theHand)
         {
             theHand.SortCards();
-            int valueOfLastCard = theHand[theHand.Count - 1].FaceValue;
+            var valueOfLastCard = theHand[theHand.Count - 1].FaceValue;
             for (var index = 3; index >= 0; index--)
             {
                 var value = theHand[index].FaceValue;
@@ -17,5 +17,7 @@
             }
             return true;
         }
+
+        public int HandValue => 4;
     }
 }

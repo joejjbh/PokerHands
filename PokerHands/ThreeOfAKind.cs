@@ -1,12 +1,15 @@
 ﻿namespace PokerHands
 {
-    public class ThreeOfAKind
+    public class ThreeOfAKind : XOfAKind, IEvaluateHands
     {
-        private const int numberOfMatchingCards = 3;
+        private const int NumberOfMatchingCards = 3;
 
-        public bool CheckIfThreeOfAKind(Hand theHand)
+
+        public bool IsTypeOf(Hand hand)
         {
-            return XOfAKind.CheckXOfAKind(theHand, numberOfMatchingCards);
+            return CheckXOfAKind(hand, NumberOfMatchingCards);
         }
+
+        public int HandValue => 3;
     }
 }

@@ -53,7 +53,7 @@
     <Compile Include="HandQualityTests.cs" />
     <Compile Include="PokerHandsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="cardTests.cs" />
+    <Compile Include="CardTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PokerHands\PokerHands.csproj">
