@@ -9,21 +9,31 @@ namespace PokerHands
         {
             if (theHand.Count < x) return false;
 
+
             var copyOfCardsInHand = new List<Card>();
-            for (var index = 0; index < theHand.Count; index++)
-            {
-                copyOfCardsInHand.Add(theHand[index]);
-            }
-
-            for (var index = 0; index < copyOfCardsInHand.Count; index++)
-            {
-                var valueOfCardToMatch = theHand[index].FaceValue;
-
-                var countOfMatches = copyOfCardsInHand.Count(c => c.FaceValue == valueOfCardToMatch);
-                if (countOfMatches == x)
-                    return true;
-            }
-            return false;
+//            foreach (Card card in theHand)
+//            {
+//                var valueOfCardToMatch = card.FaceValue;
+//                
+//                var countOfMatches = theHand.Count(c => c.FaceValue == valueOfCardToMatch);
+//                if (countOfMatches == x)
+//                    return true;
+//            }
+//            return false;
+                        for (var index = 0; index < theHand.Count; index++)
+                        {
+                            copyOfCardsInHand.Add(theHand[index]);
+                        }
+            
+                        for (var index = 0; index < copyOfCardsInHand.Count; index++)
+                        {
+                            var valueOfCardToMatch = theHand[index].FaceValue;
+            
+                            var countOfMatches = copyOfCardsInHand.Count(c => c.FaceValue == valueOfCardToMatch);
+                            if (countOfMatches == x)
+                                return true;
+                        }
+                        return false;
         }
     }
 }

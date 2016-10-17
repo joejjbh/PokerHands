@@ -62,7 +62,7 @@ namespace PokerHands.Tests
 
         [TestCase("7H,8H,9H,10H,JH", "7D,8S,9S,10D,JC", "Player One Wins")]
         [TestCase("7D,8S,9S,10D,JC", "7H,8H,9H,10H,JH", "Player Two Wins")]
-        [TestCase("7D,7S,7D,10D,JC", "8H,8C 8C,10H,JH", "It is a draw")]
+        [TestCase("7D,7S,7D,10D,JC", "8H,8C, 8C,10H,JH", "It is a draw")]
         public void ShouldReturnWhichHadWins(string hand1, string hand2, string expectedResult)
         {
             Hand playerOneHand = new Hand(hand1);
